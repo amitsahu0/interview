@@ -1,34 +1,34 @@
 #simple Ansible playbook that installs the Apache web server on a group of remote servers.
 \\You can save this playbook in a YAML file, for example, "install_apache.yml".
 
----
-- name: Install Apache Web Server
-  hosts: webservers  # Replace 'webservers' with the appropriate group from your inventory
+//---
+//- name: Install Apache Web Server
+//  hosts: webservers  # Replace 'webservers' with the appropriate group from your inventory
 
-  tasks:
-    - name: Update package cache
-      become: yes
-      apt:
-        update_cache: yes  # Use 'yum' for CentOS/Red Hat systems
+//  tasks:
+//    - name: Update package cache
+//      become: yes
+//      apt:
+//        update_cache: yes  # Use 'yum' for CentOS/Red Hat systems
 
-    - name: Install Apache
-      become: yes
-      apt:
-        name: apache2
-        state: present  # Use 'name: httpd' for CentOS/Red Hat systems
+//    - name: Install Apache
+//      become: yes
+//      apt:
+//        name: apache2
+//        state: present  # Use 'name: httpd' for CentOS/Red Hat systems
 
-    - name: Start Apache Service
-      become: yes
-      service:
-        name: apache2
-        state: started  # Use 'name: httpd' for CentOS/Red Hat systems
-        enabled: yes
+//    - name: Start Apache Service
+//      become: yes
+//      service:
+//        name: apache2
+//        state: started  # Use 'name: httpd' for CentOS/Red Hat systems
+//        enabled: yes
 
-    - name: Enable Apache to start at boot
-      become: yes
-      service:
-        name: apache2
-        enabled: yes  # Use 'name: httpd' for CentOS/Red Hat systems
+//    - name: Enable Apache to start at boot
+//      become: yes
+//      service:
+//        name: apache2
+//        enabled: yes  # Use 'name: httpd' for CentOS/Red Hat systems
 =========================================================================
 # Ansible playbook that performs tasks like copying a file, setting file permissions, and restarting a service on remote servers. 
 
