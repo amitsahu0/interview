@@ -1,7 +1,6 @@
 #simple Ansible playbook that installs the Apache web server on a group of remote servers.
 \\You can save this playbook in a YAML file, for example, "install_apache.yml".
 
----
 - name: Install Apache Web Server
   hosts: webservers  # Replace 'webservers' with the appropriate group from your inventory
 
@@ -32,7 +31,6 @@
 ==========================================================================================
 # Ansible playbook that performs tasks like copying a file, setting file permissions, and restarting a service on remote servers. 
 
----
 - name: File Copy and Service Restart
   hosts: webservers  # Replace 'webservers' with your target host/group
 
@@ -57,7 +55,6 @@
 ============================================================================================
 # Download the artifact and unzip
 
----
 - name: playbook to download the jarfile from jfrog and unarchive
   hosts: devops
   become: true
