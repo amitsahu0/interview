@@ -21,7 +21,7 @@ WORKDIR /the/workdir/path (Set the working directry where you have to execute th
 
 EXPOSE port (Expose the port of Docker container )
 
-=======================================================================================================================
+===================================================================================================
 
 # Example of Dockerfile
 
@@ -46,7 +46,7 @@ ENV NAME World
 # Run the command when the container starts
 CMD ["python", "app.py"]
 
-================================================================================================================
+====================================================================================================
 
 FROM ubuntu:latest/slim --- Whatever base image you want
 
