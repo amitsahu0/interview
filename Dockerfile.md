@@ -1,5 +1,5 @@
 # How to write Dockerfile:
-Remeber these '8' basic points to create dockerfile:
+# Remeber these '8' basic points to create dockerfile:
 --------------------------------------------------------
 
 
@@ -79,5 +79,43 @@ RUN apt-get update && \
 
 ENTRYPOINT ["python3"]
 CMD ["manage.py", "runserver", "0.0.0.0:8000"]
+=====================================================================
+
+# Use an official base image (in this case, Ubuntu)
+FROM ubuntu:20.04
+
+# Set the maintainer label
+LABEL maintainer="Your Name <your@email.com>"
+
+# Set the working directory within the container
+WORKDIR /app
+
+# Copy application source code and configuration files into the container
+COPY . /app
+
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y \
+        python3 \
+        python3-pip && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set environment variables
+ENV APP_PORT=8080
+ENV DATABASE_URL="mysql://user:password@db-server/dbname"
+
+# Expose port for the application
+EXPOSE $APP_PORT
+
+# Health check command
+HEALTHCHECK --interval=30s --timeout=5s \
+  CMD curl -f http://localhost:$APP_PORT/ || exit 1
+
+# User to run the application (create a non-root user)
+RUN useradd -m myuser
+USER myuser
+
+# Entry point with default command
+CMD ["python", "app.py"]
 
 
