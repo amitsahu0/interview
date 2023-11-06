@@ -3,7 +3,7 @@
 
 ---
 - name: Install Apache Web Server
--   hosts: webservers  # Replace 'webservers' with the appropriate group from your inventory
+  hosts: webservers  # Replace 'webservers' with the appropriate group from your inventory
 
   tasks:
     - name: Update package cache
